@@ -110,12 +110,60 @@ namespace Madison_Island_Proyecto
             }
 
         }
+            public void AddToCart()
+            {
+                driver = new ChromeDriver();
+                driver.Url = "http://demo-store.seleniumacademy.com/customer/account/login/";
 
-        public static void Main(string[] args)
+                IWebElement emailInput = driver.FindElement(By.CssSelector("#email"));
+                emailInput.SendKeys("jorgeluisalmanzar7@gmail.com");
+
+                IWebElement passwordInput = driver.FindElement(By.CssSelector("#pass"));
+                passwordInput.SendKeys("12345678");
+
+                // Haz clic en el botón de inicio de sesión
+                IWebElement loginButton = driver.FindElement(By.CssSelector("#send2"));
+                loginButton.Click();
+                
+                IWebElement logo = driver.FindElement(By.ClassName("logo"));
+                logo.Click();
+
+                IWebElement product = driver.FindElement(By.LinkText("CHELSEA TEE"));
+                product.Click();
+
+                IWebElement productColor = driver.FindElement(By.CssSelector("img[alt='Black']"));
+                productColor.Click();
+            
+                IWebElement productSize = driver.FindElement(By.ClassName("option-l"));
+                productSize.Click();
+
+                IWebElement form = driver.FindElement(By.CssSelector("#product_addtocart_form"));
+                form.Submit();
+
+                By selector = By.ClassName("success-msg");
+
+                try
+                {
+                    // Intenta encontrar el elemento
+                    IWebElement element = driver.FindElement(selector);
+                    Console.WriteLine("Se agrego al carrito correctamente");
+                }
+                catch (NoSuchElementException)
+                {
+                    Console.WriteLine("No se agrego al carrito correctamente");
+                }
+        }
+
+
+        
+
+            public static void Main(string[] args)
         {
-            FirstTestCase testCase = new FirstTestCase();
-            testCase.Login();
-            testCase.Register();
+                 FirstTestCase testCase = new FirstTestCase();
+                 //testCase.Login();
+                 //testCase.Register();
+                 testCase.AddToCart();
+
         }
     }
 }
