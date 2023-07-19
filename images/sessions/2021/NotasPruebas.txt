@@ -1,0 +1,12 @@
+Pruebas:
+Vacío/obligatorio.
+Mínimo (considerar espacio en blanco).
+Máximo (considerar espacio en blanco).
+Caracteres especiales.
+Caracteres numéricos (no negativos y que permita los 0 a la izquierda y que no permita la letra e).
+Un dato no igual a otro (considerar espacio en blanco).
+Escribir-Pegar (es decir, que si un campo no permite negativo, probar que no lo permita ni al escribir ni al pegar).
+Reemplazar.
+Que pasa si cambia de estado.
+Que pasa si otra cosa cambia de estado que lo afecte
+Que no permita borrarse si ya esta atado.
